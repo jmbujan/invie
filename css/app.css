@@ -1,0 +1,241 @@
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Allerta', sans-serif; */
+
+body{
+  font-family: 'Allerta', sans-serif;
+  margin: 0;
+}
+
+table{
+  width: 100%;
+  margin: 50px 0;
+}
+
+th{
+  background: #273b47;
+  color: white;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+td{
+  padding: 20px;
+}
+
+table, td, th{
+  border: 1px solid #273b47;
+  border-collapse: collapse;
+}
+
+.contenedor{
+  width: 800px;
+  margin: auto;
+}
+
+.background{
+  background-image: url('../imagenes/background.png');
+  background-size: cover;
+}
+
+input, textarea{
+  outline: 0;
+}
+
+input:focus, textarea:focus{
+  background: lightgray;
+}
+
+.titulo{
+  font-size: 70px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0;
+  margin-top: 70px;
+}
+
+.titulo span{
+  text-decoration: underline;
+}
+
+.logotipo{
+  display: inline-block;
+  margin-left: 0;
+}
+
+.header{
+  position: relative;
+}
+
+.menu{
+  font-size: 24px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.menu li{
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.menu a{
+  color: white;
+  text-decoration: none;
+}
+
+.portada{
+  color: white;
+  padding: 20px;
+  height: 500px;
+}
+
+.portada button{
+  margin-bottom: 70px;
+}
+
+.boton{
+  border-radius: 12px;
+  border: none;
+  background: #fd324e;
+  color: white;
+  text-decoration: none;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  background: linear-gradient(to left, #fe344e, #ff7250);
+}
+
+.guitarras{
+  color: #1f313c;
+  margin-bottom: 60px;
+}
+
+.guitarras h2{
+  font-size: 35px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tittle-a{
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.tittle-b{
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.guitarra{
+  margin: 10px 10px 40px 10px;
+  padding: 10px;
+  border: 1px solid #1f313c;
+  border-radius: 8px;
+}
+
+.guitarra ol{
+  padding: 0;
+}
+
+.guitarra.b{
+  height: 190px;
+}
+
+
+.derecha{
+  float: right;
+  position: relative;
+  top: -127px;
+}
+
+.izquierda{
+  float: left;
+  position: relative;
+}
+
+
+.contenedor-guitarra-a{
+  padding-left: 20px;
+}
+
+.contenedor-guitarra-b{
+  margin-left: 370px;
+  position: relative;
+  bottom: 90px;
+}
+
+.footer{
+  background: #273b47;
+  padding: 50px 10px;
+}
+
+.contacto img{
+  display: block;
+}
+
+.contacto strong{
+  display: block;
+}
+
+.contacto a{
+  color: white;
+  text-decoration: none;
+  margin: 10px 10px 10px 0;
+}
+
+/* Vamos a usar flexbox en CSS y primero ponemos la propiedad (display: flexbox) al padre */
+
+.footer .contenedor{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacto{
+  display: flex;
+  width: 300px;
+  /* Con flex-wrap: wrap los elemtos se distribuyen sobre el contenedor sin cambiar el tamaño */
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.formulario{
+  display: flex;
+  width: 400px;
+  color: white;
+  padding: 50px 10px;
+}
+
+.col-1, .col-2{
+  display: flex;
+  flex-direction: column;
+}
+
+.col-1{
+  margin-right: 15px;
+}
+
+.col-2{
+  align-items: flex-start;
+}
+
+.col-2 .boton{
+  margin-top: 15px;
+}
+
+.intereses label{
+  font-size: 12px;
+}
+
+.formulario label, .sexo, .intereses{
+  margin-bottom: 10px;
+}
+
+.sexo{
+  margin-top: 10px;
+}
+
+
+/* Para añadir el circulo en los elementos li del menú */
+.menu li:before{
+  content: '∘';
+  font-size: 30px;
+  color: white;
+}
