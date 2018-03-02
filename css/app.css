@@ -1,5 +1,3 @@
-/* font-family: 'Montserrat', sans-serif; */
-/* font-family: 'Allerta', sans-serif; */
 
 body{
   font-family: 'Allerta', sans-serif;
@@ -28,7 +26,7 @@ table, td, th{
 }
 
 .contenedor{
-  width: 800px;
+  max-width: 800px;
   margin: auto;
 }
 
@@ -238,4 +236,48 @@ input:focus, textarea:focus{
   content: '∘';
   font-size: 30px;
   color: white;
+}
+
+
+@media screen and (max-width: 800px){
+  /* portada */
+  .titulo{
+    font-size: 45px;
+    margin-top: 30px;
+  }
+  .tittle-a{
+    font-style: 18px;
+  }
+  .portada{
+    height: auto;
+  }
+  .portada .boton{
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+  /* portada */
+
+
+  /* guitarras */
+  .guitarras{
+    text-align: center;
+  }
+  .izquierda, .derecha{
+    float: none;
+    position: static;
+  }
+  .tittle-b{
+    margin: 0;
+  }
+  .guitarra li{
+    list-style: none;
+  }
+  .guitarra.b{
+    height: auto;
+  }
+  .contenedor-guitarra-b{
+    margin: 0;
+    position: static;
+  }
+  /* guitarras */
 }
