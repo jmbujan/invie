@@ -7,6 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
+  <!-- viewport, es el area visible del navegador y necesitamos ponerla si trabajamos para varios dispositivos -->
+  <!-- user-scalable=no impide que podamos hacer zoom en nuestro sitio con los dedos, se usa si nuestro sitio ya está
+  adaptado a moviles y no es necesario hacer zoom con los dedos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <!-- <link rel="stylesheet" media="(max-width: 800px)" href="css/media-querie.css"> -->
   <title>Invie - tus mejores guitarras!!</title>
 </head>
@@ -17,7 +21,8 @@
       <figure class="logotipo">
         <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo"/>
       </figure>
-      <nav class="menu">
+      <span class="burger-button icon-menu" id="burger-button"></span>
+      <nav class="menu" id="menu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#guitarras">Guitarras</a></li>
@@ -27,7 +32,7 @@
     </header>
     <div class="contenedor">
       <h1 class="titulo">Guitarras <span>invie</span>sibles</h1>
-      <h3 class="tittle-a">Sé la estrella de rock que siempre quisite ser</h3>
+      <h3 class="tittle-a">Sé la estrella de rock que siempre quisiste ser</h3>
       <a href="#guitarras" class="boton">Conoce más</a>
     </div>
   </section>
@@ -96,5 +101,16 @@
       </form>
     </div>
   </footer>
+
+  <script type="text/javascript">
+    var $burgerButton = document.getElementById('burger-button');
+    var $menu = document.getElementById('menu');
+
+    $burgerButton.addEventListener('touchstart', toggleMenu);
+    function toggleMenu(){
+      $menu.classList.toggle('active');
+    };
+  </script>
+
 </body>
 </html>

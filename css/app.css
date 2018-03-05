@@ -1,3 +1,44 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?nvhrgq');
+  src:  url('../fonts/icomoon.eot?nvhrgq#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?nvhrgq') format('truetype'),
+    url('../fonts/icomoon.woff?nvhrgq') format('woff'),
+    url('../fonts/icomoon.svg?nvhrgq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-telefono:before {
+  content: "\e942";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-close:before {
+  content: "\ea0f";
+}
+.icon-email:before {
+  content: "\ea85";
+}
+
+
+
 
 body{
   font-family: 'Allerta', sans-serif;
@@ -238,7 +279,26 @@ input:focus, textarea:focus{
   color: white;
 }
 
+.burger-button{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #395667;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  /* la posicion absoluta es con referencia al padre */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* Tenemos que hacer que se superponga al menu, al que le dimos un z-index de 2 */
+  z-index: 3;
+}
 
+
+
+/* media querie para tablets */
 @media screen and (max-width: 800px){
   /* portada */
   .titulo{
@@ -280,4 +340,131 @@ input:focus, textarea:focus{
     position: static;
   }
   /* guitarras */
+}
+
+/* media querie para tamaño de pantalla de ipad */
+@media screen and (max-width: 767px){
+  /* footer */
+  .footer .contenedor{
+    display: block;
+  }
+  .contacto{
+    margin: 0 auto;
+  }
+  .formulario{
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+  }
+  .intereses label{
+    display: block;
+    font-size: 16px;
+  }
+  /* selector de atributo */
+  input[type="text"], input[type="email"]{
+    font-size: 16px;
+    padding: 5px;
+  }
+  .col-1{
+    margin: 0;
+  }
+  textarea{
+    width: 100%;
+    font-size: 16px;
+  }
+  input[type="checkbox"], input[type="radio"]{
+    zoom: 1.5;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .logotipo{
+    display: block;
+    margin: 0;
+    text-align: center;
+  }
+  .menu{
+    position: static;
+    display: block;
+    text-align: center;
+  }
+  .menu li:first-child{
+    margin: 0;
+  }
+  .menu ul{
+    padding: 0;
+  }
+  .contenedor-guitarra-a{
+    padding: 0;
+  }
+}
+
+
+/* media querie para móviles */
+@media screen and (max-width: 500px){
+  .portada .contenedor{
+    /* Le reseteamos la posicion para que el menu ocupe toda la pantalla */
+    position: static;
+  }
+  .menu{
+    background: rgba(255, 60, 88, .8);
+    /* Ojo, que position absolute es haciendo referencia al objeto padre, en este caso portada */
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* con z-index superponemos .menu sobre el resto de elementos */
+    z-index: 2;
+    /* con display flex se afectan a los hijos de .menu, en este caso el elemento ul  */
+    display: flex;
+    align-items: center;
+    /* Desplazamos el menu para la izquierda fuera de la pantalla para que no se vea hasta que lo llamemos con
+    el burger-button */
+    width: 100%;
+    left: -100%;
+    /* con transition le decimos el tiempo que tardará en moverse el menú cuando pulsemos el burger-button */
+    transition: .3s;
+  }
+
+  /* mediante js asignamos la clase active para que se muestre el menu que por defecto está oculto a la izquierda */
+  .menu.active{
+    left: 0;
+  }
+
+  .menu ul{
+    /* para que el elemto ul ocupe el 100% */
+    flex: 1;
+  }
+
+
+  .portada{
+    text-align: center;
+  }
+  .titulo{
+    font-size: 30px;
+  }
+  .tittle-a{
+    font-size: 16px;
+  }
+  .menu li{
+    display: block;
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid white;
+  }
+  /* quitamos los assets de los li (los circulos delante de cada opción del menú) */
+  .menu li:before{
+    display: none;
+  }
+  .menu li:first-child{
+    border-top: 1px solid white;
+  }
+  .guitarra img{
+    width: 220px;
+  }
+  .tittle-b{
+    font-size: 35px;
+  }
+
 }
