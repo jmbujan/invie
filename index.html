@@ -7,6 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
+  <!-- viewport, es el area visible del navegador y necesitamos ponerla si trabajamos para varios dispositivos -->
+  <!-- user-scalable=no impide que podamos hacer zoom en nuestro sitio con los dedos, se usa si nuestro sitio ya está
+  adaptado a moviles y no es necesario hacer zoom con los dedos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!-- <link rel="stylesheet" media="(max-width: 800px)" href="css/media-querie.css"> -->
   <title>Invie - tus mejores guitarras!!</title>
 </head>
 <body>
@@ -16,7 +21,8 @@
       <figure class="logotipo">
         <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo"/>
       </figure>
-      <nav class="menu">
+      <span class="burger-button icon-menu" id="burger-button"></span>
+      <nav class="menu" id="menu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#guitarras">Guitarras</a></li>
@@ -26,7 +32,7 @@
     </header>
     <div class="contenedor">
       <h1 class="titulo">Guitarras <span>invie</span>sibles</h1>
-      <h3 class="tittle-a">Sé la estrella de rock que siempre quisite ser</h3>
+      <h3 class="tittle-a">Sé la estrella de rock que siempre quisiste ser</h3>
       <a href="#guitarras" class="boton">Conoce más</a>
     </div>
   </section>
@@ -89,11 +95,42 @@
         </div>
         <div class="col-2">
           <label for="comentarios">Comentarios</label>
-          <textarea name="comentarios" id="comentarios" cols="30" rows="7"></textarea>
+          <textarea name="comentarios" id="comentarios" cols="24" rows="7"></textarea>
           <input type="submit" name="" value="Enviar" class="boton">
         </div>
       </form>
     </div>
   </footer>
+
+  <script type="text/javascript">
+
+    // Mediante js comprobamos el ancho máximo de la ventana
+    var consulta = window.matchMedia('(max-width: 500px)');
+
+    var $burgerButton = document.getElementById('burger-button');
+    var $menu = document.getElementById('menu');
+    function toggleMenu(){
+      $menu.classList.toggle('active');
+    };
+
+    // Escucha cuando hay cambios en la ventana (resize) y ejecuta la función
+    consulta.addListener(mediaQuery);
+    // De esta forma si estamos en anchos menores de 500
+    function mediaQuery(){
+      if (consulta.matches){
+        $burgerButton.addEventListener('touchstart', toggleMenu);
+      }else{
+        $burgerButton.removeEventListener('touchstart', toggleMenu);
+      }
+    }
+
+
+
+    // Para que se ejecute la función también al cargar la página
+    mediaQuery();
+
+
+  </script>
+
 </body>
 </html>
