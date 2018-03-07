@@ -19,7 +19,9 @@
   <section id="portada" class="portada background">
     <header id="header" class="header contenedor">
       <figure class="logotipo">
-        <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo"/>
+        <!-- Podemos indicar que se cargue una imagen u otra, dependiendo del dispositivo podemos cargar una imagen
+        con densidad 1x o una con densidad 2x -->
+        <img src="imagenes/invie.png" srcset="imagenes/invie.png 1x, imagenes/invie2x.png 2x" width="186" height="60" alt="Invie Logotipo"/>
       </figure>
       <span class="burger-button icon-menu" id="burger-button"></span>
       <nav class="menu" id="menu">
@@ -38,12 +40,21 @@
   </section>
 
 
-  <!-- Guitarras -->
+
   <section id="guitarras" class="guitarras contenedor">
     <h2>Nuestras guitarras</h2>
+
+    <div class="video-responsive-contenedor">
+      <!-- video de youtube -->
+      <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/uKje_EDAEKk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
     <!-- Guitarra 1 -->
     <article class="guitarra">
-      <img class="derecha" src="imagenes/invie-acustica.png" width="350" alt="Guitarra Invie Acustica"/>
+      <!-- Cambiamos src por data-src y añadimos la clase b-lazypara utilizar el script de bylazy que carga las imaganes
+      al hacer scroll y no al cargar la página web, con lo que conseguimos que la web tarde menos en cargar y las imagenes
+      se cargen solo cuando hacemos scroll.
+      También podemos hacer que cargue imagenes con densidad 2x data-src="imagen1x.jpg|imagen2x.jpg"-->
+      <img class="derecha b-lazy" data-src="imagenes/invie-acustica.png" width="350" alt="Guitarra Invie Acustica"/>
       <div class="contenedor-guitarra-a">
         <h3 class="tittle-b">Invie Acustica</h3>
         <ol>
@@ -55,7 +66,7 @@
     </article>
     <!-- Guitarra 2 -->
     <article class="guitarra b">
-      <img class="izquierda" src="imagenes/invie-classic.png" width="350" alt="Guitarra Invie Clasica"/>
+      <img class="izquierda b-lazy" data-src="imagenes/invie-classic.png" width="350" alt="Guitarra Invie Clasica"/>
       <div class="contenedor-guitarra-b">
         <h3 class="tittle-b">Invie Classic</h3>
         <ol>
@@ -72,7 +83,7 @@
   <footer class="footer">
     <div class="contenedor">
       <div class="contacto">
-        <img src="imagenes/invie-white.png" alt="logotipo blanco"/>
+        <img clas="b-lazy" data-src="imagenes/invie-white.png" alt="logotipo blanco"/>
         <a href="tel:+34986123456"><strong>Telefono</strong><span>986123456</span></a>
         <a href="mailto:info@invie.com"><strong>Email</strong><span>info@invie.com</span></a>
       </div>
@@ -102,6 +113,8 @@
     </div>
   </footer>
 
+  <!-- Cargamos el js de bylazy (http://dinbror.dk/blazy/) que sirve para cargar las imagenes de forma progresiva al hacer scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
   <script type="text/javascript">
 
     // Mediante js comprobamos el ancho máximo de la ventana
@@ -129,6 +142,10 @@
     // Para que se ejecute la función también al cargar la página
     mediaQuery();
 
+    // añadimos bylazy
+    var bLazy = new Blazy({
+        selector: 'img' // all images
+    });
 
   </script>
 

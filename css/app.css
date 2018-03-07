@@ -72,6 +72,7 @@ table, td, th{
 }
 
 .background{
+  background-color: #466173;
   background-image: url('../imagenes/background.png');
   background-size: cover;
 }
@@ -288,6 +289,7 @@ input:focus, textarea:focus{
   display: inline-block;
   text-align: center;
   cursor: pointer;
+  color: white;
   /* la posicion absoluta es con referencia al padre */
   position: absolute;
   top: 20px;
@@ -317,7 +319,14 @@ input:focus, textarea:focus{
   }
   /* portada */
 
-
+  /* Tabla de precios */
+  .tabla{
+    margin: 50px 20px;
+  }
+  .tabla .contenedor{
+    overflow: auto;
+    border: 1px solid #273b47;
+  }
   /* guitarras */
   .guitarras{
     text-align: center;
@@ -406,6 +415,9 @@ input:focus, textarea:focus{
     /* Le reseteamos la posicion para que el menu ocupe toda la pantalla */
     position: static;
   }
+  .header .contenedor, .header{
+    position: static;
+  }
   .menu{
     background: rgba(255, 60, 88, .8);
     /* Ojo, que position absolute es haciendo referencia al objeto padre, en este caso portada */
@@ -466,5 +478,27 @@ input:focus, textarea:focus{
   .tittle-b{
     font-size: 35px;
   }
+
+}
+
+.video-responsive-contenedor{
+  position: relative;
+  /* el 56.25 es la relación de aspecto 1920*1080 (1080 * 100) / 1920 */
+  padding-top: 56.25%
+}
+
+.video-responsive-src{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* media querie para dispositivos con una densidad de pantalla de 2x
+el prefijo -webkit es para que funcione en safari y en chrome */
+@media screen and (-webkit-min-device-pixel-ratio: 2){
 
 }
