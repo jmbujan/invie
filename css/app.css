@@ -290,14 +290,27 @@ input:focus, textarea:focus{
   text-align: center;
   cursor: pointer;
   color: white;
-  /* la posicion absoluta es con referencia al padre */
-  position: absolute;
+  /* la posicion fixed va ha hacer que el burger-buttonnos persiga al hacer scroll ya que mantiene su posición fija en la pantalla */
+  position: fixed;
   top: 20px;
   left: 20px;
   /* Tenemos que hacer que se superponga al menu, al que le dimos un z-index de 2 */
   z-index: 3;
+  /* El botón solo se mostrará en las resoluciones más pequeñas (móviles) */
+  display: none;
 }
 
+.video-demo{
+  max-width: 500px;
+  width: 100%;
+  border: 5px solid #3c5b6e;
+}
+
+.video-demo-contenedor{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
 
 
 /* media querie para tablets */
@@ -347,6 +360,10 @@ input:focus, textarea:focus{
   .contenedor-guitarra-b{
     margin: 0;
     position: static;
+  }
+
+  .video-demo-contenedor{
+    margin-bottom: 30px;
   }
   /* guitarras */
 }
@@ -406,11 +423,28 @@ input:focus, textarea:focus{
   .contenedor-guitarra-a{
     padding: 0;
   }
+
 }
 
 
 /* media querie para móviles */
 @media screen and (max-width: 500px){
+  .burger-button{
+    display: block;
+  }
+
+  /* Queremos que en la resolución más pequeña los botones ocupen todo el ancho de la pantalla */
+  .portada .boton, .formulario .boton{
+    display: block;
+  }
+
+  .col-2{
+    align-items: stretch;
+  }
+
+  .precios .header .logotipo{
+    margin: 50px 0;
+  }
   .portada .contenedor{
     /* Le reseteamos la posicion para que el menu ocupe toda la pantalla */
     position: static;
@@ -420,8 +454,8 @@ input:focus, textarea:focus{
   }
   .menu{
     background: rgba(255, 60, 88, .8);
-    /* Ojo, que position absolute es haciendo referencia al objeto padre, en este caso portada */
-    position: absolute;
+    /* Con position fixed el menu nos persigue al hacer scroll */
+    position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
@@ -479,6 +513,9 @@ input:focus, textarea:focus{
     font-size: 35px;
   }
 
+  .video-demo-contenedor{
+    margin: 0 10px 30px 10px;
+  }
 }
 
 .video-responsive-contenedor{

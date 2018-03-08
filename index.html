@@ -43,10 +43,13 @@
 
   <section id="guitarras" class="guitarras contenedor">
     <h2>Nuestras guitarras</h2>
-
-    <div class="video-responsive-contenedor">
-      <!-- video de youtube -->
-      <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/uKje_EDAEKk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="video-demo-contenedor">
+      <div class="video-demo">
+        <div class="video-responsive-contenedor">
+          <!-- video de youtube -->
+          <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/uKje_EDAEKk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
     <!-- Guitarra 1 -->
     <article class="guitarra">
@@ -115,6 +118,8 @@
 
   <!-- Cargamos el js de bylazy (http://dinbror.dk/blazy/) que sirve para cargar las imagenes de forma progresiva al hacer scroll -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+  <!-- Añadimos la libreria hammer.js para añadir eventos touch (en nuestro caso va a ser swipe para desplazar el menu en los móviles) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <script type="text/javascript">
 
     // Mediante js comprobamos el ancho máximo de la ventana
@@ -124,6 +129,14 @@
     var $menu = document.getElementById('menu');
     function toggleMenu(){
       $menu.classList.toggle('active');
+    };
+
+    function showMenu(){
+      $menu.classList.add('active');
+    };
+
+    function hideMenu(){
+      $menu.classList.remove('active');
     };
 
     // Escucha cuando hay cambios en la ventana (resize) y ejecuta la función
@@ -146,6 +159,12 @@
     var bLazy = new Blazy({
         selector: 'img' // all images
     });
+
+    // Usamos la libreria hammerjs para implementar gestos en los móviles
+    var $body = document.body;
+    var gestos = new Hammer($body);
+    gestos.on('swipeleft', hideMenu);
+    gestos.on('swiperight', showMenu);
 
   </script>
 
