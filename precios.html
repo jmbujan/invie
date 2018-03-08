@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Precios de tus mejores guitarras!!</title>
 </head>
 <body>
@@ -14,7 +15,8 @@
       <figure class="logotipo">
         <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo"/>
       </figure>
-      <nav class="menu">
+      <span class="burger-button icon-menu" id="burger-button"></span>
+      <nav class="menu" id="menu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#guitarras">Guitarras</a></li>
@@ -87,6 +89,41 @@
     </div>
   </footer>
 
+  <!-- Cargamos el js de bylazy (http://dinbror.dk/blazy/) que sirve para cargar las imagenes de forma progresiva al hacer scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+  <script type="text/javascript">
+
+    // Mediante js comprobamos el ancho máximo de la ventana
+    var consulta = window.matchMedia('(max-width: 500px)');
+
+    var $burgerButton = document.getElementById('burger-button');
+    var $menu = document.getElementById('menu');
+    function toggleMenu(){
+      $menu.classList.toggle('active');
+    };
+
+    // Escucha cuando hay cambios en la ventana (resize) y ejecuta la función
+    consulta.addListener(mediaQuery);
+    // De esta forma si estamos en anchos menores de 500
+    function mediaQuery(){
+      if (consulta.matches){
+        $burgerButton.addEventListener('touchstart', toggleMenu);
+      }else{
+        $burgerButton.removeEventListener('touchstart', toggleMenu);
+      }
+    }
+
+
+
+    // Para que se ejecute la función también al cargar la página
+    mediaQuery();
+
+    // añadimos bylazy
+    var bLazy = new Blazy({
+        selector: 'img' // all images
+    });
+
+  </script>
 
 </body>
 </html>
