@@ -47,7 +47,7 @@ body{
 
 table{
   width: 100%;
-  margin: 50px 0;
+  /* margin: 50px 0; */
 }
 
 th{
@@ -312,10 +312,18 @@ input:focus, textarea:focus{
   margin-bottom: 80px;
 }
 
+.tabla{
+  margin: 50px 20px;
+}
 
 /* media querie para tablets */
 @media screen and (max-width: 800px){
   /* portada */
+  .precios .logotipo{
+    padding-left: 20px;
+  }
+
+
   .titulo{
     font-size: 45px;
     margin-top: 30px;
@@ -336,10 +344,12 @@ input:focus, textarea:focus{
   .tabla{
     margin: 50px 20px;
   }
-  .tabla .contenedor{
+
+  .tabla .contenedor {
     overflow: auto;
     border: 1px solid #273b47;
   }
+
   /* guitarras */
   .guitarras{
     text-align: center;
@@ -366,10 +376,16 @@ input:focus, textarea:focus{
     margin-bottom: 30px;
   }
   /* guitarras */
+
+  .formulario{
+    width: 100%;
+  }
 }
 
 /* media querie para tamaño de pantalla de ipad */
 @media screen and (max-width: 767px){
+
+
   /* footer */
   .footer .contenedor{
     display: block;
@@ -442,9 +458,10 @@ input:focus, textarea:focus{
     align-items: stretch;
   }
 
-  .precios .header .logotipo{
-    margin: 50px 0;
+  .precios .logotipo{
+    padding: 50px 0;
   }
+
   .portada .contenedor{
     /* Le reseteamos la posicion para que el menu ocupe toda la pantalla */
     position: static;
